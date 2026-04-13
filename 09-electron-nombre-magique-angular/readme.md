@@ -1,0 +1,1 @@
+Vous avez toutes les informations pour faire cet exercice.
