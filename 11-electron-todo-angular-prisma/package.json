@@ -1,0 +1,28 @@
+{
+  "name": "electron-todo-angular-prisma",
+  "version": "1.0.0",
+  "description": "Todo List Electron + Angular + Prisma (SQLite)",
+  "license": "ISC",
+  "author": "Nicolas Wattiaux",
+  "type": "commonjs",
+  "main": "dist/main.js",
+  "scripts": {
+    "build:electron": "tsc",
+    "build:angular": "cd renderer/app && ng build",
+    "build": "npm run build:electron && npm run build:angular",
+    "start": "npm run build && npx electron .",
+    "start:dev": "npx electron .",
+    "prisma:migrate":  "npx prisma migrate dev --name init",
+    "prisma:generate": "npx prisma generate",
+    "prisma:studio":   "npx prisma studio"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "electron": "^33.0.0",
+    "prisma": "^6.0.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0"
+  }
+}

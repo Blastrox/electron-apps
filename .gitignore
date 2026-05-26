@@ -18,3 +18,7 @@ Thumbs.db
 
 # Dossiers non publiés
 
+# Base de données SQLite
+**/*.db
+
+
