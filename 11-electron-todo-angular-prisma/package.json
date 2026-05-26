@@ -5,16 +5,16 @@
   "license": "ISC",
   "author": "Nicolas Wattiaux",
   "type": "commonjs",
-  "main": "dist/main.js",
+  "main": "dist/src/main.js",
   "scripts": {
     "build:electron": "tsc",
     "build:angular": "cd renderer/app && ng build",
     "build": "npm run build:electron && npm run build:angular",
     "start": "npm run build && npx electron .",
     "start:dev": "npx electron .",
-    "prisma:migrate":  "npx prisma migrate dev --name init",
+    "prisma:migrate": "npx prisma migrate dev --name init",
     "prisma:generate": "npx prisma generate",
-    "prisma:studio":   "npx prisma studio"
+    "prisma:studio": "npx prisma studio"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

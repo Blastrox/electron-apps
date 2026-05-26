@@ -1,8 +1,9 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 
+
 // DATABASE_URL AVANT l'import de PrismaClient
-process.env['DATABASE_URL'] = 'file:' + path.join(__dirname, '..', 'prisma', 'todo.db');
+process.env['DATABASE_URL'] = 'file:' + path.join(__dirname, '..', '..', 'prisma', 'todo.db');
 
 import * as db from './repository/todo.repository';
 
@@ -19,7 +20,7 @@ function createWindow(): void {
     });
 
     win.loadFile(
-        path.join(__dirname, '..', 'renderer/app/dist/app/browser/index.html')
+        path.join(__dirname, '..', '..', 'renderer/app/dist/app/browser/index.html')
     );
 }
 
@@ -33,8 +34,8 @@ app.on('before-quit', async () => {
 
 // ─── IPC ───────────────────────────────────────────────────────
 
-ipcMain.handle('get-todos',    ()               => db.getTodos());
-ipcMain.handle('add-todo',     (_e, text: string) => db.addTodo(text));
-ipcMain.handle('toggle-todo',  (_e, id: number)   => db.toggleTodo(id));
-ipcMain.handle('delete-todo',  (_e, id: number)   => db.deleteTodo(id));
-ipcMain.handle('toggle-all',   ()               => db.toggleAll());
+ipcMain.handle('get-todos', () => db.getTodos());
+ipcMain.handle('add-todo', (_e, text: string) => db.addTodo(text));
+ipcMain.handle('toggle-todo', (_e, id: number) => db.toggleTodo(id));
+ipcMain.handle('delete-todo', (_e, id: number) => db.deleteTodo(id));
+ipcMain.handle('toggle-all', () => db.toggleAll());
